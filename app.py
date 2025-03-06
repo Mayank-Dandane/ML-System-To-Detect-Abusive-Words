@@ -38,5 +38,7 @@ def predict():
 
     return jsonify({"prediction": int(prediction)})  # Convert NumPy int to Python int
 
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5002, debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Use Railway-assigned port
+    app.run(host="0.0.0.0", port=port, debug=True)
